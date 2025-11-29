@@ -1,4 +1,11 @@
-import { Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Instagram,
+  MessageCircle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -10,12 +17,15 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-lg font-bold text-primary-foreground">Л</span>
+                <span className="text-lg font-bold text-primary-foreground">
+                  Л
+                </span>
               </div>
               <span className="text-lg font-bold">В избушке у Лешего</span>
             </div>
             <p className="text-sm text-slate-300">
-              Экосистема осознанной жизни. Трансформация через философию тороидальности и принципы пермакультуры.
+              Экосистема осознанной жизни. Трансформация через философию
+              тороидальности и принципы пермакультуры.
             </p>
           </div>
 
@@ -24,27 +34,42 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Навигация</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-slate-300 hover:text-primary transition-colors">
+                <Link
+                  to="/"
+                  className="text-slate-300 hover:text-primary transition-colors"
+                >
                   Главная
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-300 hover:text-primary transition-colors">
+                <Link
+                  to="/about"
+                  className="text-slate-300 hover:text-primary transition-colors"
+                >
                   О проекте
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="text-slate-300 hover:text-primary transition-colors">
+                <Link
+                  to="/products"
+                  className="text-slate-300 hover:text-primary transition-colors"
+                >
                   Продукты
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-slate-300 hover:text-primary transition-colors">
+                <Link
+                  to="/blog"
+                  className="text-slate-300 hover:text-primary transition-colors"
+                >
                   Блог
                 </Link>
               </li>
               <li>
-                <Link to="/contacts" className="text-slate-300 hover:text-primary transition-colors">
+                <Link
+                  to="/contacts"
+                  className="text-slate-300 hover:text-primary transition-colors"
+                >
                   Контакты
                 </Link>
               </li>
@@ -56,22 +81,34 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Услуги</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-primary transition"
+                >
                   Личный энергоаудит
                 </a>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-primary transition"
+                >
                   Проектирование пермасистемы
                 </a>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-primary transition"
+                >
                   Тороидальная жизнь
                 </a>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
+                <a
+                  href="#"
+                  className="text-slate-400 hover:text-primary transition"
+                >
                   Практикум
                 </a>
               </li>
@@ -84,13 +121,21 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0 text-primary" />
-                <a href="mailto:lessnoy7@gmail.com" className="text-slate-400 hover:text-primary transition">
+                <a
+                  href="mailto:lessnoy7@gmail.com"
+                  className="text-slate-400 hover:text-primary transition"
+                >
                   lessnoy7@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 mt-1 flex-shrink-0 text-primary" />
-                <a href="https://t.me/JlELLIuu" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition">
+                <a
+                  href="https://t.me/JlELLIuu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-primary transition"
+                >
                   Telegram: @JlELLIuu
                 </a>
               </li>
@@ -105,15 +150,28 @@ const Footer = () => {
         {/* Social Links */}
         <div className="border-t border-slate-800 pt-8 mb-8">
           <div className="flex items-center justify-between">
-            <p className="text-sm text-slate-400">Следите за нами в социальных сетях</p>
+            <p className="text-sm text-slate-400">
+              Следите за нами в социальных сетях
+            </p>
             <div className="flex items-center gap-4">
-              <a href="https://t.me/JlELLIuu" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition">
+              <a
+                href="https://t.me/JlELLIuu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-primary transition"
+              >
                 <MessageCircle className="w-5 h-5" />
               </a>
-              <a href="#" className="text-slate-400 hover:text-primary transition">
+              <a
+                href="#"
+                className="text-slate-400 hover:text-primary transition"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-slate-400 hover:text-primary transition">
+              <a
+                href="#"
+                className="text-slate-400 hover:text-primary transition"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
             </div>

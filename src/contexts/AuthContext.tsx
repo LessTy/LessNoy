@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 interface User {
   id: string;
@@ -22,7 +28,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 };
@@ -37,12 +43,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const savedUser = localStorage.getItem('user');
+    const savedUser = localStorage.getItem("user");
     if (savedUser) {
       try {
         setUser(JSON.parse(savedUser));
       } catch (e) {
-        console.error('Error parsing user data', e);
+        console.error("Error parsing user data", e);
       }
     }
     setIsLoading(false);
@@ -52,52 +58,56 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsLoading(true);
     try {
       // Имитация задержки сети
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // 2. ЛОГИКА "ФЕЙКОВОГО" АДМИНА
       // Если почта admin@admin.com - даем права админа
-      const isAdmin = email === 'admin@admin.com';
+      const isAdmin = email === "admin@admin.com";
 
       const mockUser: User = {
-        id: '1',
+        id: "1",
         email,
-        name: email.split('@')[0],
-        role: isAdmin ? 'admin' : 'user', // Выдаем роль динамически
-        purchases: isAdmin ? ['all-access'] : [],
-        progress: {}
+        name: email.split("@")[0],
+        role: isAdmin ? "admin" : "user", // Выдаем роль динамически
+        purchases: isAdmin ? ["all-access"] : [],
+        progress: {},
       };
 
       setUser(mockUser);
-      localStorage.setItem('user', JSON.stringify(mockUser));
+      localStorage.setItem("user", JSON.stringify(mockUser));
       return true;
     } catch (error) {
-      console.error('Login error:', error);
+      console.error("Login error:", error);
       return false;
     } finally {
       setIsLoading(false);
     }
   };
 
-  const register = async (email: string, password: string, name: string): Promise<boolean> => {
+  const register = async (
+    email: string,
+    password: string,
+    name: string,
+  ): Promise<boolean> => {
     setIsLoading(true);
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // При регистрации все становятся обычными юзерами
       const newUser: User = {
         id: Date.now().toString(),
         email,
         name,
-        role: 'user',
+        role: "user",
         purchases: [],
-        progress: {}
+        progress: {},
       };
 
       setUser(newUser);
-      localStorage.setItem('user', JSON.stringify(newUser));
+      localStorage.setItem("user", JSON.stringify(newUser));
       return true;
     } catch (error) {
-      console.error('Register error:', error);
+      console.error("Register error:", error);
       return false;
     } finally {
       setIsLoading(false);
@@ -106,7 +116,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
   };
 
   const value: AuthContextType = {
@@ -114,7 +124,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     login,
     register,
     logout,
-    isLoading
+    isLoading,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

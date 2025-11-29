@@ -52,13 +52,17 @@ const Hero = () => {
 
         {/* Subheading */}
         <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-          Ваша жизнь как самоподдерживающаяся экосистема — философия тороидальности, практическая пермакультура и личная трансформация
+          Ваша жизнь как самоподдерживающаяся экосистема — философия
+          тороидальности, практическая пермакультура и личная трансформация
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
           <Link to="/products">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold px-8">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-8"
+            >
               Начать трансформацию
             </Button>
           </Link>

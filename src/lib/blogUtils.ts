@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export interface BlogPost {
   id: string;
@@ -13,17 +13,17 @@ export interface BlogPost {
   content: string;
 }
 
-const blogDir = path.join(process.cwd(), 'src/content/blog');
+const blogDir = path.join(process.cwd(), "src/content/blog");
 
 export function getAllBlogPosts(): BlogPost[] {
-  const files = fs.readdirSync(blogDir).filter(file => file.endsWith('.md'));
-  
+  const files = fs.readdirSync(blogDir).filter((file) => file.endsWith(".md"));
+
   return files
-    .map(file => {
+    .map((file) => {
       const filePath = path.join(blogDir, file);
-      const fileContent = fs.readFileSync(filePath, 'utf-8');
+      const fileContent = fs.readFileSync(filePath, "utf-8");
       const { data, content } = matter(fileContent);
-      
+
       return {
         id: data.id,
         title: data.title,
@@ -32,7 +32,7 @@ export function getAllBlogPosts(): BlogPost[] {
         date: data.date,
         category: data.category,
         excerpt: data.excerpt,
-        content: content
+        content: content,
       };
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -41,13 +41,15 @@ export function getAllBlogPosts(): BlogPost[] {
 export function getBlogPostBySlug(slug: string): BlogPost | null {
   try {
     const filePath = path.join(blogDir, `*.md`);
-    const files = fs.readdirSync(blogDir).filter(file => file.endsWith('.md'));
-    
+    const files = fs
+      .readdirSync(blogDir)
+      .filter((file) => file.endsWith(".md"));
+
     for (const file of files) {
       const fullPath = path.join(blogDir, file);
-      const fileContent = fs.readFileSync(fullPath, 'utf-8');
+      const fileContent = fs.readFileSync(fullPath, "utf-8");
       const { data, content } = matter(fileContent);
-      
+
       if (data.slug === slug) {
         return {
           id: data.id,
@@ -57,7 +59,7 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
           date: data.date,
           category: data.category,
           excerpt: data.excerpt,
-          content: content
+          content: content,
         };
       }
     }
@@ -68,5 +70,5 @@ export function getBlogPostBySlug(slug: string): BlogPost | null {
 }
 
 export function getBlogPostsByCategory(category: string): BlogPost[] {
-  return getAllBlogPosts().filter(post => post.category === category);
+  return getAllBlogPosts().filter((post) => post.category === category);
 }

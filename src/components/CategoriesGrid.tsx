@@ -1,9 +1,5 @@
 import CategoryCard from "./CategoryCard";
-import {
-  Zap,
-  Leaf,
-  Infinity,
-} from "lucide-react";
+import { Zap, Leaf, Infinity } from "lucide-react";
 
 const CategoriesGrid = () => {
   const categories = [

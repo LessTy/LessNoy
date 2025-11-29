@@ -5,12 +5,19 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Calendar, User, ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
+import {
+  Calendar,
+  User,
+  ArrowLeft,
+  ArrowRight,
+  MessageCircle,
+} from "lucide-react";
 
 // Hardcoded blog posts content
 const blogPostsContent: Record<string, any> = {
   "toroidal-model": {
-    title: "Что такое тороидальная модель жизни и почему она изменит ваше представление об успехе",
+    title:
+      "Что такое тороидальная модель жизни и почему она изменит ваше представление об успехе",
     author: "Леший",
     date: "15 января 2025",
     category: "Философия",
@@ -52,7 +59,7 @@ const blogPostsContent: Record<string, any> = {
 Когда вы начнёте жить в согласии со своими циклами, вы откроете источник неисчерпаемой энергии. Не потому что будете работать больше, а потому что будете работать умнее.
 
 Это не отказ от успеха. Это иное его определение — не вопреки природе, а в гармонии с ней.
-    `
+    `,
   },
   "permaculture-principles": {
     title: "5 принципов пермакультуры, которые можно применить в своей жизни",
@@ -101,7 +108,7 @@ const blogPostsContent: Record<string, any> = {
 Где нарушена синергия? Где есть конфликты? Где элементы изолированы друг от друга?
 
 Когда вы начнёте применять принципы пермакультуры к своей жизни, вы обнаружите, что система становится всё более устойчивой, более плодородной и более радостной.
-    `
+    `,
   },
   "burnout-to-flow": {
     title: "От выгорания к циклическому потоку - мой путь трансформации",
@@ -164,14 +171,15 @@ const blogPostsContent: Record<string, any> = {
 Это не отказ от амбиций. Это их переформатирование. Это амбиции в гармонии с природой, а не вопреки ей.
 
 Я прошёл этот путь. И я готов помочь вам найти свой собственный путь трансформации.
-    `
-  }
+    `,
+  },
 };
 
 const allPosts = [
   {
     id: "toroidal-model",
-    title: "Что такое тороидальная модель жизни и почему она изменит ваше представление об успехе",
+    title:
+      "Что такое тороидальная модель жизни и почему она изменит ваше представление об успехе",
     slug: "toroidal-model",
   },
   {
@@ -183,7 +191,7 @@ const allPosts = [
     id: "burnout-to-flow",
     title: "От выгорания к циклическому потоку - мой путь трансформации",
     slug: "burnout-to-flow",
-  }
+  },
 ];
 
 // Comments interface
@@ -221,7 +229,7 @@ const BlogPost = () => {
       id: Date.now().toString(),
       author: authorName,
       text: newComment,
-      date: new Date().toLocaleDateString('ru-RU'),
+      date: new Date().toLocaleDateString("ru-RU"),
     };
 
     const updatedComments = [...comments, comment];
@@ -248,9 +256,10 @@ const BlogPost = () => {
     );
   }
 
-  const currentIndex = allPosts.findIndex(p => p.slug === slug);
+  const currentIndex = allPosts.findIndex((p) => p.slug === slug);
   const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
-  const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const nextPost =
+    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -259,13 +268,16 @@ const BlogPost = () => {
       {/* Article Header */}
       <section className="py-12 border-b">
         <div className="container mx-auto px-4 max-w-3xl">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-6">
+          <Link
+            to="/blog"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-6"
+          >
             <ArrowLeft className="w-4 h-4" />
             Вернуться к блогу
           </Link>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
-          
+
           <div className="flex items-center gap-6 text-muted-foreground flex-wrap">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
@@ -287,35 +299,64 @@ const BlogPost = () => {
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="prose prose-invert max-w-none">
             <article>
-              {post.content.split('\n\n').map((paragraph, idx) => {
-                if (paragraph.startsWith('# ')) {
-                  return <h1 key={idx} className="text-3xl font-bold mt-8 mb-4">{paragraph.slice(2)}</h1>;
-                }
-                if (paragraph.startsWith('## ')) {
-                  return <h2 key={idx} className="text-2xl font-bold mt-6 mb-3">{paragraph.slice(3)}</h2>;
-                }
-                if (paragraph.startsWith('- ')) {
+              {post.content.split("\n\n").map((paragraph, idx) => {
+                if (paragraph.startsWith("# ")) {
                   return (
-                    <ul key={idx} className="list-disc list-inside space-y-2 my-4">
-                      {paragraph.split('\n').map((item, i) => (
-                        <li key={i} className="text-muted-foreground">{item.slice(2)}</li>
+                    <h1 key={idx} className="text-3xl font-bold mt-8 mb-4">
+                      {paragraph.slice(2)}
+                    </h1>
+                  );
+                }
+                if (paragraph.startsWith("## ")) {
+                  return (
+                    <h2 key={idx} className="text-2xl font-bold mt-6 mb-3">
+                      {paragraph.slice(3)}
+                    </h2>
+                  );
+                }
+                if (paragraph.startsWith("- ")) {
+                  return (
+                    <ul
+                      key={idx}
+                      className="list-disc list-inside space-y-2 my-4"
+                    >
+                      {paragraph.split("\n").map((item, i) => (
+                        <li key={i} className="text-muted-foreground">
+                          {item.slice(2)}
+                        </li>
                       ))}
                     </ul>
                   );
                 }
-                if (paragraph.startsWith('1. ') || paragraph.match(/^\d+\. /)) {
+                if (paragraph.startsWith("1. ") || paragraph.match(/^\d+\. /)) {
                   return (
-                    <ol key={idx} className="list-decimal list-inside space-y-2 my-4">
-                      {paragraph.split('\n').map((item, i) => (
-                        <li key={i} className="text-muted-foreground">{item.replace(/^\d+\. /, '')}</li>
+                    <ol
+                      key={idx}
+                      className="list-decimal list-inside space-y-2 my-4"
+                    >
+                      {paragraph.split("\n").map((item, i) => (
+                        <li key={i} className="text-muted-foreground">
+                          {item.replace(/^\d+\. /, "")}
+                        </li>
                       ))}
                     </ol>
                   );
                 }
-                if (paragraph.startsWith('**')) {
-                  return <p key={idx} className="text-muted-foreground italic my-4">{paragraph}</p>;
+                if (paragraph.startsWith("**")) {
+                  return (
+                    <p key={idx} className="text-muted-foreground italic my-4">
+                      {paragraph}
+                    </p>
+                  );
                 }
-                return <p key={idx} className="text-muted-foreground leading-relaxed my-4">{paragraph}</p>;
+                return (
+                  <p
+                    key={idx}
+                    className="text-muted-foreground leading-relaxed my-4"
+                  >
+                    {paragraph}
+                  </p>
+                );
               })}
             </article>
           </div>
@@ -331,21 +372,29 @@ const BlogPost = () => {
                 <div className="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition">
                   <ArrowLeft className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-sm text-muted-foreground mb-1">Предыдущая статья</p>
-                    <p className="font-semibold group-hover:text-primary transition">{prevPost.title}</p>
+                    <p className="text-sm text-muted-foreground mb-1">
+                      Предыдущая статья
+                    </p>
+                    <p className="font-semibold group-hover:text-primary transition">
+                      {prevPost.title}
+                    </p>
                   </div>
                 </div>
               </Link>
             ) : (
               <div />
             )}
-            
+
             {nextPost ? (
               <Link to={`/blog/${nextPost.slug}`} className="group">
                 <div className="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition justify-end text-right">
                   <div>
-                    <p className="text-sm text-muted-foreground mb-1">Следующая статья</p>
-                    <p className="font-semibold group-hover:text-primary transition">{nextPost.title}</p>
+                    <p className="text-sm text-muted-foreground mb-1">
+                      Следующая статья
+                    </p>
+                    <p className="font-semibold group-hover:text-primary transition">
+                      {nextPost.title}
+                    </p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                 </div>
@@ -413,9 +462,13 @@ const BlogPost = () => {
                 <div key={comment.id} className="border rounded-lg p-6 bg-card">
                   <div className="flex items-start justify-between mb-3">
                     <div className="font-semibold">{comment.author}</div>
-                    <div className="text-sm text-muted-foreground">{comment.date}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {comment.date}
+                    </div>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">{comment.text}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {comment.text}
+                  </p>
                 </div>
               ))
             )}

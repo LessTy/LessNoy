@@ -1,7 +1,7 @@
-import React from 'react';
-import { useTheme } from '@/contexts/ThemeContext';
-import { Button } from '@/components/ui/button';
-import { Moon, Sun } from 'lucide-react';
+import React from "react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
 
 const ThemeToggle: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
@@ -13,7 +13,7 @@ const ThemeToggle: React.FC = () => {
       onClick={toggleTheme}
       className="border-primary/20 hover:border-primary/40"
     >
-      {theme === 'dark' ? (
+      {theme === "dark" ? (
         <Sun className="h-4 w-4" />
       ) : (
         <Moon className="h-4 w-4" />

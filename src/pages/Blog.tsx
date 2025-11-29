@@ -10,12 +10,14 @@ import { useState } from "react";
 const blogPosts = [
   {
     id: "toroidal-model",
-    title: "Что такое тороидальная модель жизни и почему она изменит ваше представление об успехе",
+    title:
+      "Что такое тороидальная модель жизни и почему она изменит ваше представление об успехе",
     slug: "toroidal-model",
     author: "Леший",
     date: "15 января 2025",
     category: "Философия",
-    excerpt: "Откройте для себя древнюю мудрость, которая переформатирует ваше понимание успеха и развития."
+    excerpt:
+      "Откройте для себя древнюю мудрость, которая переформатирует ваше понимание успеха и развития.",
   },
   {
     id: "permaculture-principles",
@@ -24,7 +26,8 @@ const blogPosts = [
     author: "Леший",
     date: "10 января 2025",
     category: "Практика",
-    excerpt: "Как спроектировать личную жизнь как саморегулирующуюся экосистему."
+    excerpt:
+      "Как спроектировать личную жизнь как саморегулирующуюся экосистему.",
   },
   {
     id: "burnout-to-flow",
@@ -33,8 +36,9 @@ const blogPosts = [
     author: "Леший",
     date: "5 января 2025",
     category: "История",
-    excerpt: "Как я прошёл от полного выгорания к осмысленной жизни, следуя принципам тороидальности."
-  }
+    excerpt:
+      "Как я прошёл от полного выгорания к осмысленной жизни, следуя принципам тороидальности.",
+  },
 ];
 
 const Blog = () => {
@@ -72,7 +76,10 @@ const Blog = () => {
           <div className="max-w-3xl mx-auto">
             <div className="space-y-8">
               {blogPosts.map((post) => (
-                <Card key={post.id} className="p-6 md:p-8 hover:border-primary transition">
+                <Card
+                  key={post.id}
+                  className="p-6 md:p-8 hover:border-primary transition"
+                >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                     <div>
                       <div className="flex items-center gap-4 mb-3 flex-wrap">
@@ -89,16 +96,14 @@ const Blog = () => {
                         </div>
                       </div>
                       <h2 className="text-2xl font-bold mb-3 hover:text-primary transition">
-                        <Link to={`/blog/${post.slug}`}>
-                          {post.title}
-                        </Link>
+                        <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                       </h2>
                       <p className="text-muted-foreground mb-4">
                         {post.excerpt}
                       </p>
                     </div>
                   </div>
-                  
+
                   <Link to={`/blog/${post.slug}`}>
                     <Button variant="ghost" className="text-primary">
                       Читать полностью
@@ -111,17 +116,24 @@ const Blog = () => {
 
             {/* Newsletter Signup */}
             <Card className="mt-20 p-8 bg-gradient-to-r from-primary/10 to-primary/5 border-primary/20">
-              <h3 className="text-2xl font-bold mb-4">Подпишитесь на обновления</h3>
+              <h3 className="text-2xl font-bold mb-4">
+                Подпишитесь на обновления
+              </h3>
               <p className="text-muted-foreground mb-6">
                 Получайте новые статьи и инсайты прямо в ваш почтовый ящик
               </p>
               {subscribed ? (
                 <div className="flex items-center gap-3 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
                   <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-green-700">Спасибо за подписку! Проверьте вашу почту.</span>
+                  <span className="text-green-700">
+                    Спасибо за подписку! Проверьте вашу почту.
+                  </span>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
+                <form
+                  onSubmit={handleSubscribe}
+                  className="flex flex-col sm:flex-row gap-3"
+                >
                   <input
                     type="email"
                     placeholder="ваша почта@example.com"
@@ -130,7 +142,9 @@ const Blog = () => {
                     className="flex-1 px-4 py-3 rounded-lg border border-input bg-background hover:border-primary/50 focus:border-primary focus:outline-none transition"
                     required
                   />
-                  <Button size="lg" type="submit">Подписаться</Button>
+                  <Button size="lg" type="submit">
+                    Подписаться
+                  </Button>
                 </form>
               )}
             </Card>

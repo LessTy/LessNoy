@@ -1,12 +1,18 @@
-import React from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Book, Users, Award, TrendingUp, LogOut } from 'lucide-react';
+import React from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Book, Users, Award, TrendingUp, LogOut } from "lucide-react";
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -27,15 +33,21 @@ const Dashboard = () => {
         <div className="container mx-auto px-4">
           {/* Welcome Section */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-2">Добро пожаловать, {user.name}!</h1>
-            <p className="text-muted-foreground">Отслеживайте свой прогресс в программах трансформации</p>
+            <h1 className="text-3xl font-bold mb-2">
+              Добро пожаловать, {user.name}!
+            </h1>
+            <p className="text-muted-foreground">
+              Отслеживайте свой прогресс в программах трансформации
+            </p>
           </div>
 
           {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Купленных программ</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Купленных программ
+                </CardTitle>
                 <Book className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
@@ -45,34 +57,49 @@ const Dashboard = () => {
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Пройденных модулей</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Пройденных модулей
+                </CardTitle>
                 <Award className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{completedModules}</div>
-                <p className="text-xs text-muted-foreground">из {totalModules}</p>
+                <p className="text-xs text-muted-foreground">
+                  из {totalModules}
+                </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Общий прогресс</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Общий прогресс
+                </CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{Math.round((completedModules / totalModules) * 100)}%</div>
-                <Progress value={(completedModules / totalModules) * 100} className="mt-2" />
+                <div className="text-2xl font-bold">
+                  {Math.round((completedModules / totalModules) * 100)}%
+                </div>
+                <Progress
+                  value={(completedModules / totalModules) * 100}
+                  className="mt-2"
+                />
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Сообщество</CardTitle>
+                <CardTitle className="text-sm font-medium">
+                  Сообщество
+                </CardTitle>
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">47</div>
-                <p className="text-xs text-muted-foreground">участников онлайн</p>
+                <p className="text-xs text-muted-foreground">
+                  участников онлайн
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -83,7 +110,9 @@ const Dashboard = () => {
             {user.purchases.length === 0 ? (
               <Card className="p-8 text-center">
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">У вас пока нет активных программ</p>
+                  <p className="text-muted-foreground mb-4">
+                    У вас пока нет активных программ
+                  </p>
                   <Button asChild>
                     <a href="/products">Выбрать программу</a>
                   </Button>
@@ -95,9 +124,11 @@ const Dashboard = () => {
                   <Card key={programId}>
                     <CardHeader>
                       <CardTitle className="flex items-center justify-between">
-                        {programId === 'audit' ? 'Личный энергоаудит' :
-                         programId === 'system' ? 'Проектирование пермасистемы' :
-                         'Тороидальная жизнь'}
+                        {programId === "audit"
+                          ? "Личный энергоаудит"
+                          : programId === "system"
+                            ? "Проектирование пермасистемы"
+                            : "Тороидальная жизнь"}
                         <Badge variant="secondary">Активна</Badge>
                       </CardTitle>
                       <CardDescription>
@@ -113,9 +144,7 @@ const Dashboard = () => {
                           </div>
                           <Progress value={75} />
                         </div>
-                        <Button className="w-full">
-                          Продолжить обучение
-                        </Button>
+                        <Button className="w-full">Продолжить обучение</Button>
                       </div>
                     </CardContent>
                   </Card>
@@ -148,9 +177,7 @@ const Dashboard = () => {
                 <p className="text-muted-foreground text-sm mb-4">
                   Общайтесь с единомышленниками в закрытой группе
                 </p>
-                <Button variant="outline">
-                  Открыть Telegram
-                </Button>
+                <Button variant="outline">Открыть Telegram</Button>
               </CardContent>
             </Card>
 
@@ -176,12 +203,8 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button variant="outline">
-                  Изменить пароль
-                </Button>
-                <Button variant="outline">
-                  Настройки профиля
-                </Button>
+                <Button variant="outline">Изменить пароль</Button>
+                <Button variant="outline">Настройки профиля</Button>
                 <Button variant="destructive" onClick={logout}>
                   <LogOut className="w-4 h-4 mr-2" />
                   Выйти

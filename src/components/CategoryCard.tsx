@@ -31,7 +31,12 @@ const CategoryCard = ({
       <Card className="h-full hover:shadow-lg transition-all duration-300 hover:border-primary/30 overflow-hidden">
         <CardContent className="p-6">
           <div className="flex items-start justify-between mb-4">
-            <div className={cn("w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center", iconColor)}>
+            <div
+              className={cn(
+                "w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center",
+                iconColor,
+              )}
+            >
               <Icon className="w-6 h-6" />
             </div>
             {badge && (
@@ -39,7 +44,7 @@ const CategoryCard = ({
                 className={cn(
                   "font-semibold",
                   badge.variant === "trending" && "bg-warning text-foreground",
-                  badge.variant === "featured" && "bg-accent text-foreground"
+                  badge.variant === "featured" && "bg-accent text-foreground",
                 )}
               >
                 {badge.text}

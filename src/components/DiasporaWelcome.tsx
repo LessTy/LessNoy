@@ -12,11 +12,18 @@ const DiasporaWelcome = () => {
           </div>
           <div className="flex-1">
             <div className="flex items-center gap-2 mb-2">
-              <h3 className="text-lg font-semibold">Вам знакомо это чувство?</h3>
-              <Badge className="bg-warning text-foreground">Экзистенциальный кризис</Badge>
+              <h3 className="text-lg font-semibold">
+                Вам знакомо это чувство?
+              </h3>
+              <Badge className="bg-warning text-foreground">
+                Экзистенциальный кризис
+              </Badge>
             </div>
             <p className="text-muted-foreground">
-              Вы чувствуете, что жизнь идёт по инерции, без смысла и глубины? Пришло время перестроить отношение к существованию. Мы предлагаем путь трансформации через философию тороидальности и принципы пермакультуры.
+              Вы чувствуете, что жизнь идёт по инерции, без смысла и глубины?
+              Пришло время перестроить отношение к существованию. Мы предлагаем
+              путь трансформации через философию тороидальности и принципы
+              пермакультуры.
             </p>
           </div>
         </div>

@@ -11,9 +11,14 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
+          <Link
+            to="/"
+            className="flex items-center gap-2 hover:opacity-80 transition"
+          >
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-xl font-bold text-primary-foreground">Л</span>
+              <span className="text-xl font-bold text-primary-foreground">
+                Л
+              </span>
             </div>
             <span className="text-xl font-bold text-white">
               В избушке у<span className="text-primary"> Лешего</span>
@@ -43,7 +48,11 @@ const Header = () => {
           <div className="flex items-center gap-3">
             {/* Кнопка Контакты (всегда видна) */}
             <Link to="/contacts" className="hidden sm:block">
-              <Button variant="ghost" size="sm" className="text-white hover:text-primary">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-white hover:text-primary"
+              >
                 Контакты
               </Button>
             </Link>
@@ -52,9 +61,14 @@ const Header = () => {
             {user ? (
               <>
                 {/* Если Админ - показываем кнопку Админки */}
-                {(user.role === 'admin' || user.isAdmin) && (
+                {(user.role === "admin" || user.isAdmin) && (
                   <Link to="/admin">
-                    <Button variant="ghost" size="sm" className="text-red-400 hover:text-red-300 hover:bg-red-950/30" title="Админ панель">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-red-400 hover:text-red-300 hover:bg-red-950/30"
+                      title="Админ панель"
+                    >
                       <Settings className="w-4 h-4 mr-1" />
                       <span className="hidden sm:inline">Админ</span>
                     </Button>
@@ -63,17 +77,21 @@ const Header = () => {
 
                 {/* Кнопка Личный кабинет */}
                 <Link to="/dashboard">
-                  <Button variant="outline" size="sm" className="bg-primary/10 text-primary border-primary/30 hover:bg-primary/20">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="bg-primary/10 text-primary border-primary/30 hover:bg-primary/20"
+                  >
                     <UserIcon className="w-4 h-4 sm:mr-2" />
                     <span className="hidden sm:inline">Кабинет</span>
                   </Button>
                 </Link>
 
                 {/* Кнопка Выход */}
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  onClick={logout} 
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={logout}
                   className="text-slate-400 hover:text-white"
                   title="Выйти"
                 >
@@ -83,7 +101,9 @@ const Header = () => {
             ) : (
               /* Если не вошел - кнопка Войти */
               <Link to="/login">
-                <Button variant="default" size="sm">Войти</Button>
+                <Button variant="default" size="sm">
+                  Войти
+                </Button>
               </Link>
             )}
           </div>
