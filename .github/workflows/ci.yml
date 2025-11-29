@@ -1,1 +1,52 @@
-... (ВСТАВЬ СЮДА КОД ИЗ ПРЕДЫДУЩЕГО СООБЩЕНИЯ) ...
+name: CI/CD Quality Check
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+permissions:
+  contents: write
+
+jobs:
+  check-code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Скачивание кода
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: 🟢 Установка Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Установка зависимостей
+        run: npm ci
+
+      - name: 🧹 Форматирование (Prettier)
+        run: npm run format
+
+      - name: 💾 Авто-сохранение исправлений
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-format code with Prettier"
+          
+      - name: 🔍 Поиск ошибок (Linter)
+        run: npm run lint
+
+  build-test:
+    needs: check-code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - name: 🏗️ Проверка сборки
+        run: npm run build
