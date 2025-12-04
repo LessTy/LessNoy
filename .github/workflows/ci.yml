@@ -1,0 +1,27 @@
+name: CI/CD Quality & Auto-Fix
+on:
+  push: { branches: [ "main", "master" ] }
+  pull_request: { branches: [ "main", "master" ] }
+permissions: { contents: write }
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: ${{ github.head_ref }} }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: 'npm' }
+      - run: npm ci
+      - run: npm run format
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with: { commit_message: "style: auto-format code with Prettier" }
+      - run: npm run lint
+  build-check:
+    needs: quality-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: 'npm' }
+      - run: npm ci
+      - run: npm run build
