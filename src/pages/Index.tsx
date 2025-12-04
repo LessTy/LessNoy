@@ -1,90 +1,98 @@
 import Header from "@/components/Header";
-import ParallaxHeader from "@/components/ParallaxHeader";
-import CategoriesGrid from "@/components/CategoriesGrid";
-import DiasporaWelcome from "@/components/DiasporaWelcome";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, Shield, Users, Heart } from "lucide-react";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { ArrowRight, Send } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 const Index = () => {
-  const badges = [
-    { icon: Shield, text: "Философия тороидальности" },
-    { icon: Users, text: "Принципы пермакультуры" },
-    { icon: Heart, text: "Личная трансформация" },
-  ];
-
-  // Принудительное обновление позиции подзаголовка при монтировании
-  useEffect(() => {
-    // Небольшая задержка для уверенности в рендере
-    const timer = setTimeout(() => {
-      window.dispatchEvent(new Event('scroll'));
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const scrollToManifesto = () => {
+    document.getElementById('manifesto')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
       
-      <ParallaxHeader>
-        <div className="hero-content">
-          <h1 className="hero-title">
-            У Лешего
+      <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
+        {/* === HERO === */}
+        <section className="text-center py-16 md:py-24">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+            ПРОЕКТ: АВТОНОМИЯ
           </h1>
-        </div>
-        <div className="hero-subtitle-container">
-          <p className="hero-subtitle max-w-3xl mx-auto">
-            Ваша жизнь как самоподдерживающаяся экосистема — философия тороидальности, практические занятия и личная трансформация
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
+            Системный подход к жизни для тех, кто устал её обслуживать.
           </p>
-        </div>
-      </ParallaxHeader>
-      
-      <DiasporaWelcome />
-      
-      {/* БЛОК 2: ПЕЩЕРА (Dungeon) - Восстановлен */}
-      <article className="main-article-dungeon">
-        <div className="pt-16">
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-            <Link to="/products">
-              <Button size="lg" className="bg-primary/20 backdrop-blur-sm border border-primary/30 hover:bg-primary/30 text-white font-semibold px-8">
-                Начать трансформацию
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Button size="lg" onClick={scrollToManifesto}>
+              Читать Манифест
+            </Button>
+            <a href="https://t.me/JlELLIuu" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline">
+                <Send className="w-4 h-4 mr-2" />
+                Telegram-канал
               </Button>
-            </Link>
-            <Link to="/about">
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-semibold px-8"
-              >
-                <ArrowUpRight className="w-5 h-5 mr-2" />
-                Получить бесплатный гайд
-              </Button>
-            </Link>
+            </a>
           </div>
+        </section>
 
-          {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {badges.map((badge, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="bg-black/20 backdrop-blur-sm text-white border-white/10 px-4 py-2 text-sm"
-              >
-                <badge.icon className="w-4 h-4 mr-2" />
-                {badge.text}
-              </Badge>
-            ))}
-          </div>
-          <CategoriesGrid /> 
+        {/* === СУТЬ (МАНИФЕСТ) === */}
+        <section id="manifesto" className="py-16 md:py-24 max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Суть Проекта</h2>
+            <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed border-l-4 border-primary pl-6">
+              "Мы живем в линейном мире: Заработал → Потратил → Умер. Это системная ошибка. Я предлагаю архитектуру замкнутого цикла (Тор). Жизнь, которая питает сама себя."
+            </blockquote>
+        </section>
+
+        {/* === ДВА ПУТИ === */}
+        <section className="py-16 md:py-24">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                {/* Карта 1: Философия */}
+                <Card className="hover:shadow-lg transition-shadow duration-300">
+                    <CardHeader>
+                        <CardTitle className="text-2xl">1. Философия</CardTitle>
+                        <CardDescription>Как перестроить мышление и выйти из дня сурка.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="mb-4">
+                          Поиск и устранение "багов" в вашей жизненной системе, через которые утекает энергия.
+                        </p>
+                        <Link to="/services">
+                            <Button variant="link" className="p-0 h-auto">
+                                Узнать об услугах <ArrowRight className="w-4 h-4 ml-2" />
+                            </Button>
+                        </Link>
+                    </CardContent>
+                </Card>
+
+                {/* Карта 2: Практика */}
+                <Card className="hover:shadow-lg transition-shadow duration-300">
+                    <CardHeader>
+                        <CardTitle className="text-2xl">2. Практика</CardTitle>
+                        <CardDescription>Как я строю автономную экосистему на 6 гектарах с нуля.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="mb-4">
+                          Дневник стройки, чертежи, технологии. Реалити-проект как доказательство работы системы.
+                        </p>
+                         <Link to="/project-farm">
+                            <Button variant="link" className="p-0 h-auto">
+                               Смотреть проект <ArrowRight className="w-4 h-4 ml-2" />
+                            </Button>
+                        </Link>
+                    </CardContent>
+                </Card>
+            </div>
+        </section>
+      </main>
+
+      <section className="py-16 md:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 text-center">
+            <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
+              "Хватит обслуживать свою жизнь. Начните жить ею."
+            </blockquote>
         </div>
-      </article>
-
-
+      </section>
 
       <Footer />
     </div>

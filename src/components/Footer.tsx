@@ -11,15 +11,15 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <img 
                 src="/img/Logo.png" 
-                alt="Логотип В избушке у Лешего" 
+                alt="Логотип Проект: Автономия" 
                 className="w-12 h-12 rounded-lg object-contain"
               />
               <span className="text-lg font-bold text-white">
-                В избушке у<span className="text-primary"> Лешего</span>
+                Проект:<span className="text-primary"> Автономия</span>
               </span>
             </div>
             <p className="text-sm text-slate-300">
-              Экосистема осознанной жизни. Трансформация через философию тороидальности и принципы пермакультуры.
+              Системный подход к жизни для тех, кто устал её обслуживать.
             </p>
           </div>
 
@@ -27,31 +27,13 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Навигация</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/" className="text-slate-300 hover:text-primary transition-colors">
-                  Главная
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-slate-300 hover:text-primary transition-colors">
-                  О проекте
-                </Link>
-              </li>
-              <li>
-                <Link to="/products" className="text-slate-300 hover:text-primary transition-colors">
-                  Продукты
-                </Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-slate-300 hover:text-primary transition-colors">
-                  Блог
-                </Link>
-              </li>
-              <li>
-                <Link to="/contacts" className="text-slate-300 hover:text-primary transition-colors">
-                  Контакты
-                </Link>
-              </li>
+              <li><Link to="/" className="text-slate-300 hover:text-primary transition-colors">Главная</Link></li>
+              <li><Link to="/method" className="text-slate-300 hover:text-primary transition-colors">Философия</Link></li>
+              <li><Link to="/about" className="text-slate-300 hover:text-primary transition-colors">Об авторе</Link></li>
+              <li><Link to="/services" className="text-slate-300 hover:text-primary transition-colors">Услуги</Link></li>
+              <li><Link to="/project-farm" className="text-slate-300 hover:text-primary transition-colors">Проект</Link></li>
+              <li><Link to="/blog" className="text-slate-300 hover:text-primary transition-colors">Блог</Link></li>
+              <li><Link to="/contacts" className="text-slate-300 hover:text-primary transition-colors">Контакты</Link></li>
             </ul>
           </div>
 
@@ -60,24 +42,14 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Услуги</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
-                  Личный энергоаудит
-                </a>
+                <Link to="/services" className="text-slate-400 hover:text-primary transition">
+                  Анализ жизненной стратегии
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
-                  Проектирование пермасистемы
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
-                  Тороидальная жизнь
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-slate-400 hover:text-primary transition">
-                  Практикум
-                </a>
+                <Link to="/services" className="text-slate-400 hover:text-primary transition">
+                  Архитектура Автономии
+                </Link>
               </li>
             </ul>
           </div>
@@ -109,7 +81,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-slate-800 py-2">
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-slate-400">
-            <p>&copy; 2025 В избушке у Лешего. Все права защищены.</p>
+            <p>&copy; {new Date().getFullYear()} Проект: Автономия. Все права защищены.</p>
             <div className="flex items-center gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-primary transition">
                 Политика конфиденциальности

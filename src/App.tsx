@@ -5,14 +5,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
-import SmoothScroll from "@/components/SmoothScroll";
+// import SmoothScroll from "@/components/SmoothScroll";
 import Index from "./pages/Index";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
 // Lazy load other pages for better performance
 const About = lazy(() => import("./pages/About"));
-const Products = lazy(() => import("./pages/Products"));
+const Services = lazy(() => import("./pages/Services"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const Contacts = lazy(() => import("./pages/Contacts"));
@@ -21,6 +21,8 @@ const Admin = lazy(() => import("./pages/Admin"));
 const Login = lazy(() => import("./pages/Login"));
 const Register = lazy(() => import("./pages/Register"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Method = lazy(() => import("./pages/Method"));
+const ProjectFarm = lazy(() => import("./pages/ProjectFarm"));
 
 // Loading component
 const LoadingFallback = () => (
@@ -45,12 +47,13 @@ const App = () => {
             <Sonner />
             <BrowserRouter>
               <ScrollToTop />
-              <SmoothScroll>
                 <Suspense fallback={<LoadingFallback />}>
                   <Routes>
                     <Route path="/" element={<Index />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/products" element={<Products />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/method" element={<Method />} />
+                    <Route path="/project-farm" element={<ProjectFarm />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="/contacts" element={<Contacts />} />
@@ -62,7 +65,6 @@ const App = () => {
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
-              </SmoothScroll>
             </BrowserRouter>
           </TooltipProvider>
         </QueryClientProvider>

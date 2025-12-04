@@ -24,24 +24,34 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
             <img 
               src="/img/Logo.png" 
-              alt="Логотип В избушке у Лешего" 
+              alt="Логотип Проект: Автономия" 
               className="w-12 h-12 rounded-lg object-contain"
             />
             <span className="text-xl font-bold text-white">
-              В избушке у<span className="text-primary"> Лешего</span>
+              Проект:<span className="text-primary"> Автономия</span>
             </span>
           </Link>
 
           {/* Navigation (Центральное меню) */}
           <nav className="hidden md:flex items-center gap-6">
-            <Link to="/about">
+            <Link to="/method">
               <Button variant="ghost" className="text-white hover:text-primary">
-                О проекте
+                Философия
               </Button>
             </Link>
-            <Link to="/products">
+            <Link to="/about">
               <Button variant="ghost" className="text-white hover:text-primary">
-                Продукты
+                Об авторе
+              </Button>
+            </Link>
+            <Link to="/services">
+              <Button variant="ghost" className="text-white hover:text-primary">
+                Услуги
+              </Button>
+            </Link>
+            <Link to="/project-farm">
+              <Button variant="ghost" className="text-white hover:text-primary">
+                Проект
               </Button>
             </Link>
             <Link to="/blog">
@@ -115,14 +125,24 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden absolute top-16 right-0 bg-black/20 backdrop-blur-sm z-40 border border-white/10 rounded-lg w-40">
           <nav className="flex flex-col py-2">
-            <Link to="/about" onClick={closeMenu}>
+            <Link to="/method" onClick={closeMenu}>
               <Button variant="ghost" className="text-white hover:text-primary text-lg w-full justify-start px-3 py-3 hover:bg-white/5">
-                О проекте
+                Философия
               </Button>
             </Link>
-            <Link to="/products" onClick={closeMenu}>
+            <Link to="/about" onClick={closeMenu}>
               <Button variant="ghost" className="text-white hover:text-primary text-lg w-full justify-start px-3 py-3 hover:bg-white/5">
-                Продукты
+                Об авторе
+              </Button>
+            </Link>
+            <Link to="/services" onClick={closeMenu}>
+              <Button variant="ghost" className="text-white hover:text-primary text-lg w-full justify-start px-3 py-3 hover:bg-white/5">
+                Услуги
+              </Button>
+            </Link>
+            <Link to="/project-farm" onClick={closeMenu}>
+              <Button variant="ghost" className="text-white hover:text-primary text-lg w-full justify-start px-3 py-3 hover:bg-white/5">
+                Проект
               </Button>
             </Link>
             <Link to="/blog" onClick={closeMenu}>

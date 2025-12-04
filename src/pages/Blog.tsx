@@ -14,7 +14,7 @@ const blogPosts = [
     slug: "toroidal-model",
     author: "Леший",
     date: "15 января 2025",
-    category: "Философия",
+    category: "Анатомия смыслов",
     excerpt: "Откройте для себя древнюю мудрость, которая переформатирует ваше понимание успеха и развития."
   },
   {
@@ -23,7 +23,7 @@ const blogPosts = [
     slug: "permaculture-principles",
     author: "Леший",
     date: "10 января 2025",
-    category: "Практика",
+    category: "Хроники стройки",
     excerpt: "Как спроектировать жизнь как саморегулирующуюся экосистему."
   },
   {
@@ -32,7 +32,7 @@ const blogPosts = [
     slug: "burnout-to-flow",
     author: "Леший",
     date: "5 января 2025",
-    category: "История",
+    category: "Разбор полетов",
     excerpt: "Как я прошёл от полного выгорания к осмысленной жизни, следуя принципам тороидальности."
   }
 ];
@@ -53,7 +53,6 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <div className="scrollable-dungeon"></div>
       <div style={{ minHeight: '100vh', overflowY: 'auto', position: 'relative', zIndex: 1, paddingTop: '4rem' }}>
         <div className="container mx-auto px-4 py-8 md:py-12">
           <div className="max-w-6xl mx-auto">
@@ -127,6 +126,15 @@ const Blog = () => {
           </div>
         </div>
       </div>
+
+      <section className="py-16 md:py-20 bg-muted/20">
+        <div className="container mx-auto px-4 text-center">
+            <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
+              "Хватит обслуживать свою жизнь. Начните жить ею."
+            </blockquote>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
