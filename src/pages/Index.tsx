@@ -18,7 +18,7 @@ const Index = () => {
         {/* === HERO === */}
         <section className="text-center py-16 md:py-24">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-            ПРОЕКТ: АВТОНОМИЯ
+            ПРОЕКТ: <span className="text-primary">АВТОНОМИЯ</span>
           </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
             Системный подход к жизни для тех, кто устал её обслуживать.
@@ -40,7 +40,7 @@ const Index = () => {
         <section id="manifesto" className="py-16 md:py-24 max-w-4xl mx-auto text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Суть Проекта</h2>
             <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed border-l-4 border-primary pl-6">
-              "Мы живем в линейном мире: Заработал → Потратил → Умер. Это системная ошибка. Я предлагаю архитектуру замкнутого цикла (Тор). Жизнь, которая питает сама себя."
+              "Мы живем в линейном мире: Заработал → Потратил → Умер. Это системная ошибка. Я предлагаю архитектуру замкнутого цикла (<span className="text-primary">Тор</span>). Жизнь, которая питает сама себя."
             </blockquote>
         </section>
 
@@ -86,10 +86,10 @@ const Index = () => {
         </section>
       </main>
 
-      <section className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
             <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
-              "Хватит обслуживать свою жизнь. Начните жить ею."
+              "Хватит <span className="text-primary">обслуживать</span> свою жизнь. Начните <span className="text-primary">жить</span> ею."
             </blockquote>
         </div>
       </section>

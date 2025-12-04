@@ -24,13 +24,13 @@ const Method = () => {
                   <li>
                     <strong className="font-semibold text-xl">1. Почему?</strong>
                     <p className="text-muted-foreground text-base">
-                      (Поиск корневой причины, а не симптома).
+                      (<span className="text-primary">Поиск корневой причины, а не симптома</span>).
                     </p>
                   </li>
                   <li>
                     <strong className="font-semibold text-xl">2. Чтобы что?</strong>
                     <p className="text-muted-foreground text-base">
-                      (Проверка на истинность цели).
+                      (<span className="text-primary">Проверка на истинность цели</span>).
                     </p>
                   </li>
                 </ul>
@@ -43,10 +43,10 @@ const Method = () => {
         </section>
       </main>
       
-      <section className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
             <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
-              "Хватит обслуживать свою жизнь. Начните жить ею."
+              "Хватит <span className="text-primary">обслуживать</span> свою жизнь. Начните <span className="text-primary">жить</span> ею."
             </blockquote>
         </div>
       </section>

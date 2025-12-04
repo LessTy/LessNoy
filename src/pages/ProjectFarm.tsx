@@ -11,7 +11,7 @@ const ProjectFarm = () => {
         <section className="py-12 md:py-16">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-8">
-              Лаборатория «Избушка Лешего»
+              Лаборатория «<span className="text-primary">Избушка Лешего</span>»
             </h1>
             <Card className="shadow-lg mb-12">
               <CardContent className="p-8 md:p-10 text-lg leading-relaxed">
@@ -57,10 +57,10 @@ const ProjectFarm = () => {
         </section>
       </main>
 
-      <section className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
             <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
-              "Хватит обслуживать свою жизнь. Начните жить ею."
+              "Хватит <span className="text-primary">обслуживать</span> свою жизнь. Начните <span className="text-primary">жить</span> ею."
             </blockquote>
         </div>
       </section>

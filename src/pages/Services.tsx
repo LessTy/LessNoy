@@ -15,14 +15,14 @@ const Services = () => {
               Услуги
             </h1>
             <p className="text-lg text-muted-foreground text-center mb-12">
-              Строгий прайс-лист. Никаких "успей купить".
+              Строгий прайс-лист. Никаких "<span className="text-primary">успей купить</span>".
             </p>
 
             <div className="space-y-8">
               {/* Продукт 1 */}
               <Card className="shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Стратегическая сессия «Анализ жизненной стратегии»</CardTitle>
+                  <CardTitle className="text-2xl">Стратегическая сессия «<span className="text-primary">Анализ жизненной стратегии</span>»</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
@@ -52,7 +52,7 @@ const Services = () => {
               {/* Продукт 2 */}
               <Card className="shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Наставничество «Архитектура Автономии»</CardTitle>
+                  <CardTitle className="text-2xl">Наставничество «<span className="text-primary">Архитектура Автономии</span>»</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div>
@@ -71,10 +71,10 @@ const Services = () => {
         </section>
       </main>
 
-      <section className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
             <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
-              "Хватит обслуживать свою жизнь. Начните жить ею."
+              "Хватит <span className="text-primary">обслуживать</span> свою жизнь. Начните <span className="text-primary">жить</span> ею."
             </blockquote>
         </div>
       </section>

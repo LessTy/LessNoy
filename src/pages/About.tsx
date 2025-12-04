@@ -10,7 +10,7 @@ const About = () => {
         <section className="py-12 md:py-16">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-8">
-              Tabula Rasa (Чистый лист)
+              Tabula Rasa <span className="text-primary">(Чистый лист)</span>
             </h1>
             <Card className="shadow-lg">
               <CardContent className="p-8 md:p-10 text-lg leading-relaxed space-y-6">
@@ -24,7 +24,7 @@ const About = () => {
                   Я провел 2 года прикованным к постели после комы, собирая себя по кускам.
                 </p>
                 <blockquote className="text-xl md:text-2xl text-foreground leading-relaxed border-l-4 border-primary pl-6 my-6">
-                  Именно тогда, лежа в тишине, я понял: всё, за чем я гнался — фантомы.
+                  <span className="text-primary">"Именно тогда, лежа в тишине, я понял: всё, за чем я гнался — фантомы."</span>
                 </blockquote>
                 <p>
                   Я вышел из игры. Сейчас у меня нет миллионов на счетах, но у меня есть то, чего нет у большинства — Свобода и понимание, как работает Жизнь.
@@ -38,10 +38,10 @@ const About = () => {
         </section>
       </main>
 
-      <section className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
             <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
-              "Хватит обслуживать свою жизнь. Начните жить ею."
+              "Хватит <span className="text-primary">обслуживать</span> свою жизнь. Начните <span className="text-primary">жить</span> ею."
             </blockquote>
         </div>
       </section>

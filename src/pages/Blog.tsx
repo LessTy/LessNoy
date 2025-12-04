@@ -37,9 +37,12 @@ const blogPosts = [
   }
 ];
 
+const categories = ["Все категории", ...Array.from(new Set(blogPosts.map(post => post.category)))];
+
 const Blog = () => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("Все категории");
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,12 +53,31 @@ const Blog = () => {
       setTimeout(() => setSubscribed(false), 3000);
     }
   };
+
+  const filteredPosts = blogPosts.filter(post => 
+    selectedCategory === "Все категории" || post.category === selectedCategory
+  );
+
   return (
     <div className="min-h-screen">
       <Header />
       <div style={{ minHeight: '100vh', overflowY: 'auto', position: 'relative', zIndex: 1, paddingTop: '4rem' }}>
         <div className="container mx-auto px-4 py-8 md:py-12">
           <div className="max-w-6xl mx-auto">
+
+            {/* Category Filters */}
+            <div className="flex justify-center flex-wrap gap-2 mb-8">
+              {categories.map(category => (
+                <Button 
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "outline"}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 text-primary">
               Блог
             </h1>
@@ -65,7 +87,7 @@ const Blog = () => {
 
             {/* Blog Posts */}
             <div className="space-y-8">
-              {blogPosts.map((post) => (
+              {filteredPosts.map((post) => (
                 <Card key={post.id} className="p-5 sm:p-6 hover:border-primary/30 transition bg-black/20 backdrop-blur-sm border border-white/10">
                   <div className="flex items-center gap-4 mb-3 flex-wrap">
                     <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
@@ -127,10 +149,10 @@ const Blog = () => {
         </div>
       </div>
 
-      <section className="py-16 md:py-20 bg-muted/20">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4 text-center">
             <blockquote className="text-2xl md:text-3xl font-semibold text-foreground max-w-4xl mx-auto">
-              "Хватит обслуживать свою жизнь. Начните жить ею."
+              "Хватит <span className="text-primary">обслуживать</span> свою жизнь. Начните <span className="text-primary">жить</span> ею."
             </blockquote>
         </div>
       </section>
