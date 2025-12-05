@@ -90,7 +90,7 @@ const Blog = () => {
             {/* Blog Posts */}
             <div className="space-y-8">
               {filteredPosts.map((post) => (
-                <Card key={post.id} className="p-5 sm:p-6 hover:border-primary/30 transition bg-black/20 backdrop-blur-sm border border-white/10">
+                <Card key={post.id} className="p-5 sm:p-6 hover:border-primary/30 transition">
                   <div className="flex items-center gap-4 mb-3 flex-wrap">
                     <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                       {post.category}
@@ -123,7 +123,7 @@ const Blog = () => {
             </div>
 
             {/* Newsletter Signup */}
-            <Card className="mt-12 p-6 md:p-8 bg-black/20 backdrop-blur-sm border border-white/10">
+            <Card className="mt-12 p-6 md:p-8 border border-white/10">
               <h3 className="text-xl md:text-2xl font-bold mb-4">Подпишитесь на обновления</h3>
               <p className="text-sm md:text-base text-white/80 mb-6">
                 Получайте новые статьи и инсайты прямо в ваш почтовый ящик

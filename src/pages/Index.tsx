@@ -25,17 +25,6 @@ const Index = () => {
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
             Системный подход к жизни для тех, кто устал её обслуживать.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" onClick={scrollToManifesto}>
-              Читать Манифест
-            </Button>
-            <a href="https://t.me/JlELLIuu" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline">
-                <Send className="w-4 h-4 mr-2" />
-                Telegram-канал
-              </Button>
-            </a>
-          </div>
         </section>
 
         {/* === СУТЬ (МАНИФЕСТ) === */}

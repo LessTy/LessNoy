@@ -5,7 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 const About = () => {
   return (
     <>
-      <div className="fixed-bg" style={{ backgroundImage: "url(/img/3.jpg)" }}></div>
+      <div className="fixed-bg" style={{ backgroundImage: "url(/img/3.jpg)" }}>
+        <div className="bg-overlay-green"></div>
+      </div>
       <div className="min-h-screen bg-transparent text-foreground flex flex-col">
         <Header />
         <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">

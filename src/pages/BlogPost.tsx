@@ -242,16 +242,19 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-background flex flex-col">
-        <Header />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold mb-4">Статья не найдена</h1>
-            <Button onClick={() => navigate("/blog")}>Вернуться к блогу</Button>
+      <>
+        <div className="fixed-bg" style={{ backgroundImage: "url(/img/1.png)" }}></div>
+        <div className="min-h-screen bg-transparent flex flex-col">
+          <Header />
+          <div className="flex-1 flex items-center justify-center">
+            <div className="text-center">
+              <h1 className="text-3xl font-bold mb-4">Статья не найдена</h1>
+              <Button onClick={() => navigate("/blog")}>Вернуться к блогу</Button>
+            </div>
           </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </>
     );
   }
 
@@ -260,178 +263,180 @@ const BlogPost = () => {
   const nextPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Header />
+    <>
+      <div className="fixed-bg" style={{ backgroundImage: "url(/img/1.png)" }}></div>
+      <div className="min-h-screen bg-transparent flex flex-col">
+        <Header />
 
-      {/* Article Header */}
-      <section className="py-12 border-b">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-6">
-            <ArrowLeft className="w-4 h-4" />
-            Вернуться к блогу
-          </Link>
-          
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
-          
-          <div className="flex items-center gap-6 text-muted-foreground flex-wrap">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4" />
-              {post.date}
-            </div>
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4" />
-              {post.author}
-            </div>
-            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-              {post.category}
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Article Content */}
-      <section className="py-16 flex-1">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <div className="prose prose-invert max-w-none">
-            <article>
-              {post.content.split('\n\n').map((paragraph, idx) => {
-                if (paragraph.startsWith('# ')) {
-                  return <h1 key={idx} className="text-3xl font-bold mt-8 mb-4">{paragraph.slice(2)}</h1>;
-                }
-                if (paragraph.startsWith('## ')) {
-                  return <h2 key={idx} className="text-2xl font-bold mt-6 mb-3">{paragraph.slice(3)}</h2>;
-                }
-                if (paragraph.startsWith('- ')) {
-                  return (
-                    <ul key={idx} className="list-disc list-inside space-y-2 my-4">
-                      {paragraph.split('\n').map((item, i) => (
-                        <li key={i} className="text-muted-foreground">{item.slice(2)}</li>
-                      ))}
-                    </ul>
-                  );
-                }
-                if (paragraph.startsWith('1. ') || paragraph.match(/^\d+\. /)) {
-                  return (
-                    <ol key={idx} className="list-decimal list-inside space-y-2 my-4">
-                      {paragraph.split('\n').map((item, i) => (
-                        <li key={i} className="text-muted-foreground">{item.replace(/^\d+\. /, '')}</li>
-                      ))}
-                    </ol>
-                  );
-                }
-                if (paragraph.startsWith('**')) {
-                  return <p key={idx} className="text-muted-foreground italic my-4">{paragraph}</p>;
-                }
-                return <p key={idx} className="text-muted-foreground leading-relaxed my-4">{paragraph}</p>;
-              })}
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Navigation */}
-      <section className="border-t py-12">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {prevPost ? (
-              <Link to={`/blog/${prevPost.slug}`} className="group">
-                <div className="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition">
-                  <ArrowLeft className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Предыдущая статья</p>
-                    <p className="font-semibold group-hover:text-primary transition">{prevPost.title}</p>
-                  </div>
-                </div>
-              </Link>
-            ) : (
-              <div />
-            )}
+        {/* Article Header */}
+        <section className="py-12 border-b">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <Link to="/blog" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-6">
+              <ArrowLeft className="w-4 h-4" />
+              Вернуться к блогу
+            </Link>
             
-            {nextPost ? (
-              <Link to={`/blog/${nextPost.slug}`} className="group">
-                <div className="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition justify-end text-right">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Следующая статья</p>
-                    <p className="font-semibold group-hover:text-primary transition">{nextPost.title}</p>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                </div>
-              </Link>
-            ) : (
-              <div />
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Comments Section */}
-      <section className="border-t py-16">
-        <div className="container mx-auto px-4 max-w-3xl">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold flex items-center gap-2">
-              <MessageCircle className="w-6 h-6" />
-              Комментарии ({comments.length})
-            </h2>
-            <Button
-              onClick={() => setShowCommentForm(!showCommentForm)}
-              variant="outline"
-            >
-              {showCommentForm ? "Отменить" : "Добавить комментарий"}
-            </Button>
-          </div>
-
-          {/* Comment Form */}
-          {showCommentForm && (
-            <div className="border rounded-lg p-6 mb-8 bg-card">
-              <div className="space-y-4">
-                <Input
-                  placeholder="Ваше имя"
-                  value={authorName}
-                  onChange={(e) => setAuthorName(e.target.value)}
-                />
-                <Textarea
-                  placeholder="Ваш комментарий..."
-                  value={newComment}
-                  onChange={(e) => setNewComment(e.target.value)}
-                  rows={4}
-                />
-                <div className="flex gap-2">
-                  <Button onClick={handleAddComment}>Опубликовать</Button>
-                  <Button
-                    variant="outline"
-                    onClick={() => setShowCommentForm(false)}
-                  >
-                    Отменить
-                  </Button>
-                </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
+            
+            <div className="flex items-center gap-6 text-muted-foreground flex-wrap">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                {post.date}
               </div>
+              <div className="flex items-center gap-2">
+                <User className="w-4 h-4" />
+                {post.author}
+              </div>
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+                {post.category}
+              </span>
             </div>
-          )}
-
-          {/* Comments List */}
-          <div className="space-y-6">
-            {comments.length === 0 ? (
-              <div className="text-center py-12 text-muted-foreground">
-                <MessageCircle className="w-12 h-12 mx-auto mb-4 opacity-50" />
-                <p>Комментариев пока нет. Будьте первым!</p>
-              </div>
-            ) : (
-              comments.map((comment) => (
-                <div key={comment.id} className="border rounded-lg p-6 bg-card">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="font-semibold">{comment.author}</div>
-                    <div className="text-sm text-muted-foreground">{comment.date}</div>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">{comment.text}</p>
-                </div>
-              ))
-            )}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
-    </div>
+        {/* Article Content */}
+        <section className="py-16 flex-1">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="prose prose-invert max-w-none">
+              <article>
+                {post.content.split('\n\n').map((paragraph, idx) => {
+                  if (paragraph.startsWith('# ')) {
+                    return <h1 key={idx} className="text-3xl font-bold mt-8 mb-4">{paragraph.slice(2)}</h1>;
+                  }
+                  if (paragraph.startsWith('## ')) {
+                    return <h2 key={idx} className="text-2xl font-bold mt-6 mb-3">{paragraph.slice(3)}</h2>;
+                  }
+                  if (paragraph.startsWith('- ')) {
+                    return (
+                      <ul key={idx} className="list-disc list-inside space-y-2 my-4">
+                        {paragraph.split('\n').map((item, i) => (
+                          <li key={i} className="text-muted-foreground">{item.slice(2)}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  if (paragraph.startsWith('1. ') || paragraph.match(/^\d+\. /)) {
+                    return (
+                      <ol key={idx} className="list-decimal list-inside space-y-2 my-4">
+                        {paragraph.split('\n').map((item, i) => (
+                          <li key={i} className="text-muted-foreground">{item.replace(/^\d+\. /, '')}</li>
+                        ))}
+                      </ol>
+                    );
+                  }
+                  if (paragraph.startsWith('**')) {
+                    return <p key={idx} className="text-muted-foreground italic my-4">{paragraph}</p>;
+                  }
+                  return <p key={idx} className="text-muted-foreground leading-relaxed my-4">{paragraph}</p>;
+                })}
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* Navigation */}
+        <section className="border-t py-12">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {prevPost ? (
+                <Link to={`/blog/${prevPost.slug}`} className="group">
+                  <div className="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition">
+                    <ArrowLeft className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">Предыдущая статья</p>
+                      <p className="font-semibold group-hover:text-primary transition">{prevPost.title}</p>
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
+              
+              {nextPost ? (
+                <Link to={`/blog/${nextPost.slug}`} className="group">
+                  <div className="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition justify-end text-right">
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-1">Следующая статья</p>
+                      <p className="font-semibold group-hover:text-primary transition">{nextPost.title}</p>
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
+            </div>
+          </div>
+        </section>
+
+        {/* Comments Section */}
+        <section className="border-t py-16">
+          <div className="container mx-auto px-4 max-w-3xl">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-2xl font-bold flex items-center gap-2">
+                <MessageCircle className="w-6 h-6" />
+                Комментарии ({comments.length})
+              </h2>
+              <Button
+                onClick={() => setShowCommentForm(!showCommentForm)}
+                variant="outline"
+              >
+                {showCommentForm ? "Отменить" : "Добавить комментарий"}
+              </Button>
+            </div>
+
+            {/* Comment Form */}
+            {showCommentForm && (
+              <div className="border rounded-lg p-6 mb-8">
+                <div className="space-y-4">
+                  <Input
+                    placeholder="Ваше имя"
+                    value={authorName}
+                    onChange={(e) => setAuthorName(e.target.value)}
+                  />
+                  <Textarea
+                    placeholder="Ваш комментарий..."
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    rows={4}
+                  />
+                  <div className="flex gap-2">
+                    <Button onClick={handleAddComment}>Опубликовать</Button>
+                    <Button
+                      variant="outline"
+                      onClick={() => setShowCommentForm(false)}
+                    >
+                      Отменить
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Comments List */}
+            <div className="space-y-6">
+              {comments.length === 0 ? (
+                <div className="text-center py-12 text-muted-foreground">
+                  <MessageCircle className="w-12 h-12 mx-auto mb-4 opacity-50" />
+                  <p>Комментариев пока нет. Будьте первым!</p>
+                </div>
+              ) : (
+                              comments.map((comment) => (
+                                <div key={comment.id} className="border rounded-lg p-6">
+                                  <div className="flex items-start justify-between mb-3">
+                                    <div className="font-semibold">{comment.author}</div>
+                                    <div className="text-sm text-muted-foreground">{comment.date}</div>
+                                  </div>
+                                  <p className="text-muted-foreground leading-relaxed">{comment.text}</p>
+                                </div>
+                              ))              )}
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    </>
   );
 };
 

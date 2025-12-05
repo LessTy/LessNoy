@@ -6,7 +6,9 @@ import { Badge } from "@/components/ui/badge";
 const ProjectFarm = () => {
   return (
     <>
-      <div className="fixed-bg" style={{ backgroundImage: "url(/img/3.jpg)" }}></div>
+      <div className="fixed-bg" style={{ backgroundImage: "url(/img/3.jpg)" }}>
+        <div className="bg-overlay-green"></div>
+      </div>
       <div className="min-h-screen bg-transparent text-foreground flex flex-col">
         <Header />
         <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
@@ -41,7 +43,7 @@ const ProjectFarm = () => {
                 </Card>
             </div>
 
-            <Card className="bg-muted/40">
+            <Card>
                 <CardHeader>
                     <CardTitle className="text-center">Контент</CardTitle>
                 </CardHeader>

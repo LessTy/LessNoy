@@ -19,13 +19,13 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-sm border-b border-white/10 hover:shadow-lg hover:border-primary/30 transition-all duration-300">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition">
             <img 
               src="/img/Logo.png" 
               alt="Логотип Проект: Автономия" 
-              className="w-12 h-12 rounded-lg object-contain"
+              className="w-16 h-16 rounded-lg object-contain"
             />
             <span className="text-xl font-bold text-white">
               Проект:<span className="text-primary"> Автономия</span>

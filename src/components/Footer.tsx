@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-black border-t border-slate-800 text-slate-100">
+    <footer className="bg-black/20 backdrop-blur-sm border-t border-white/10 text-slate-100">
       <div className="container mx-auto px-4 py-2">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-2 mb-2">
           {/* About */}
@@ -12,7 +12,7 @@ const Footer = () => {
               <img 
                 src="/img/Logo.png" 
                 alt="Логотип Проект: Автономия" 
-                className="w-12 h-12 rounded-lg object-contain"
+                className="w-16 h-16 rounded-lg object-contain"
               />
               <span className="text-lg font-bold text-white">
                 Проект:<span className="text-primary"> Автономия</span>
