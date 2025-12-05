@@ -11,15 +11,17 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <Header />
+    <>
+      <div className="fixed-bg" style={{ backgroundImage: "url(/img/2.png)" }}></div>
+      <div className="min-h-screen bg-transparent text-foreground flex flex-col">
+        <Header />
       
-      <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
-        {/* === HERO === */}
-        <section className="text-center py-16 md:py-24">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-            ПРОЕКТ: <span className="text-primary">АВТОНОМИЯ</span>
-          </h1>
+        <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
+          {/* === HERO === */}
+          <section className="text-center py-16 md:py-24">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+              ПРОЕКТ: <span className="text-primary">АВТОНОМИЯ</span>
+            </h1>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
             Системный подход к жизни для тех, кто устал её обслуживать.
           </p>
@@ -96,6 +98,7 @@ const Index = () => {
 
       <Footer />
     </div>
+  </>
   );
 };
 

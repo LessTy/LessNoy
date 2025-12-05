@@ -59,28 +59,30 @@ const Blog = () => {
   );
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      <div style={{ minHeight: '100vh', overflowY: 'auto', position: 'relative', zIndex: 1, paddingTop: '4rem' }}>
-        <div className="container mx-auto px-4 py-8 md:py-12">
-          <div className="max-w-6xl mx-auto">
+    <>
+      <div className="fixed-bg" style={{ backgroundImage: "url(/img/1.png)" }}></div>
+      <div className="min-h-screen bg-transparent text-foreground">
+        <Header />
+        <div style={{ minHeight: '100vh', overflowY: 'auto', position: 'relative', zIndex: 1, paddingTop: '4rem' }}>
+          <div className="container mx-auto px-4 py-8 md:py-12">
+            <div className="max-w-6xl mx-auto">
 
-            {/* Category Filters */}
-            <div className="flex justify-center flex-wrap gap-2 mb-8">
-              {categories.map(category => (
-                <Button 
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {category}
-                </Button>
-              ))}
-            </div>
+              {/* Category Filters */}
+              <div className="flex justify-center flex-wrap gap-2 mb-8">
+                {categories.map(category => (
+                  <Button 
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    onClick={() => setSelectedCategory(category)}
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 text-primary">
-              Блог
-            </h1>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 md:mb-8 text-primary">
+                Блог
+              </h1>
             <p className="text-base md:text-lg text-center text-white/90 mb-8 md:mb-12">
               Статьи о философии, практике и личной трансформации
             </p>
@@ -159,6 +161,7 @@ const Blog = () => {
 
       <Footer />
     </div>
+  </>
   );
 };
 

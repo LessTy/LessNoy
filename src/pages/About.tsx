@@ -4,14 +4,16 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <Header />
-      <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
-        <section className="py-12 md:py-16">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-8">
-              Tabula Rasa <span className="text-primary">(Чистый лист)</span>
-            </h1>
+    <>
+      <div className="fixed-bg" style={{ backgroundImage: "url(/img/3.jpg)" }}></div>
+      <div className="min-h-screen bg-transparent text-foreground flex flex-col">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
+          <section className="py-12 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-8">
+                Tabula Rasa <span className="text-primary">(Чистый лист)</span>
+              </h1>
             <Card className="shadow-lg">
               <CardContent className="p-8 md:p-10 text-lg leading-relaxed space-y-6">
                 <p>
@@ -48,6 +50,7 @@ const About = () => {
 
       <Footer />
     </div>
+  </>
   );
 };
 

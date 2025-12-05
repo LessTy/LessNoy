@@ -6,14 +6,16 @@ import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <Header />
-      <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
-        <section className="py-12 md:py-16">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-4">
-              Услуги
-            </h1>
+    <>
+      <div className="fixed-bg" style={{ backgroundImage: "url(/img/2.png)" }}></div>
+      <div className="min-h-screen bg-transparent text-foreground flex flex-col">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 pt-24 md:pt-32">
+          <section className="py-12 md:py-16">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-4">
+                Услуги
+              </h1>
             <p className="text-lg text-muted-foreground text-center mb-12">
               Строгий прайс-лист. Никаких "<span className="text-primary">успей купить</span>".
             </p>
@@ -81,6 +83,7 @@ const Services = () => {
 
       <Footer />
     </div>
+  </>
   );
 };
 
